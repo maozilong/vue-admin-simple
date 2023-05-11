@@ -20,12 +20,12 @@ npm run dev
 
 # 超页面<Page>组件说明
 
-```
+```html
 <Page ref="page" :config="config" />
 ```
 ## 超页面-属性
 
-```
+```html
 page: {
   columns: [  // 超页面项[Object]，必选, 搜索条件、table、表单公用字段
     {
@@ -44,7 +44,7 @@ page: {
 ```
 ## 超页面-事件
 
-```
+```html
 // ...继承m-form、m-table、operation组件的所有事件
 // 搜索，opt：搜索条件，若父组件没有监听，则给m-table自动处理
 search(opt)
@@ -63,7 +63,7 @@ del() // 参考m-table.del(obj, index)方法
 
 > 40几行代码完成一个带有增删改查操作的页面。（支持批量删除）
 
-```
+```html
 <template>
   <div class="app-container">
     <Page ref="page" :config="config" />
@@ -215,7 +215,7 @@ export default {
 ```
 <m-form ref="table" v-bind="table" />
 ```
-# 表格-属性
+## 表格-属性
 
 ```
 table: {
@@ -247,7 +247,7 @@ table: {
   ],
 }
 ```
-# 表格-方法
+## 表格-方法
 
 ```
 // ...继承table所有方法
@@ -261,7 +261,7 @@ refresh(opt)
 del(obj, index) // 如配置中不存在url_del则安index下标静态删除表格数据，反之请求接口
 ```
 
-# 表格-示例
+## 表格-示例
 
 ```
 <template>
@@ -294,7 +294,7 @@ export default {
 ```
 <operation ref="operation" v-bind="operation" />
 ```
-# 操作组件-属性
+## 操作组件-属性
 操作组件分两部分：
 1、搜索条件，参考m-form表单
 2、操作按钮，
@@ -315,7 +315,7 @@ operation: {
   addButtons: [] // 默认[]，参数配置同上，叠加默认按钮组
 }
 ```
-# 操作组件-方法
+## 操作组件-方法
 
 ```
 // 提交，formData：搜索条件
@@ -331,7 +331,7 @@ del()
 
 ```
 
-## 发布
+# 发布
 
 ```bash
 # 构建测试环境
