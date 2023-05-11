@@ -25,7 +25,7 @@ npm run dev
 ```
 ## 超页面-属性
 
-```html
+```javascript
 page: {
   columns: [  // 超页面项[Object]，必选, 搜索条件、table、表单公用字段
     {
@@ -44,7 +44,7 @@ page: {
 ```
 ## 超页面-事件
 
-```html
+```javascript
 // ...继承m-form、m-table、operation组件的所有事件
 // 搜索，opt：搜索条件，若父组件没有监听，则给m-table自动处理
 search(opt)
@@ -63,7 +63,7 @@ del() // 参考m-table.del(obj, index)方法
 
 > 40几行代码完成一个带有增删改查操作的页面。（支持批量删除）
 
-```html
+```vue
 <template>
   <div class="app-container">
     <Page ref="page" :config="config" />
@@ -111,12 +111,12 @@ export default {
 
 # 表单<m-form>组件说明
 
-```
+```html
 <m-form ref="form" v-bind="form" />
 ```
 ## 表单-属性
 
-```
+```javascript
 form: {
   ...{}, // 继承Element UI Form的所有属性
   columns: [  // 表单项[Object]，必选,
@@ -149,7 +149,7 @@ form: {
 ```
 ## 表单-方法
 
-```
+```javascript
 // ...继承form所有方法
 
 // 初始化表单，formData：表单数据
@@ -164,7 +164,7 @@ setFields(option)
 
 ## 表单-示例
 
-```
+```vue
 <template>
   <div class="app-container">
     <m-form ref="form" v-bind="form" @submit="submit" />
@@ -212,12 +212,12 @@ export default {
 
 # 表格<m-table>组件说明
 
-```
+```html
 <m-form ref="table" v-bind="table" />
 ```
 ## 表格-属性
 
-```
+```javascript
 table: {
   ...{}, // 继承Element UI table的所有属性，有些属性重写，详情查看组件。
   initLoad: true, // 是否初始请求数据，默认true
@@ -249,7 +249,7 @@ table: {
 ```
 ## 表格-方法
 
-```
+```javascript
 // ...继承table所有方法
 // 搜索，opt：搜索条件
 search(opt)
@@ -263,7 +263,7 @@ del(obj, index) // 如配置中不存在url_del则安index下标静态删除表�
 
 ## 表格-示例
 
-```
+```vue
 <template>
   <div class="app-container">
     <m-table ref="table" v-bind="table" />
@@ -291,14 +291,14 @@ export default {
 
 # 操作<operation>组件说明
 
-```
+```javascript
 <operation ref="operation" v-bind="operation" />
 ```
 ## 操作组件-属性
 操作组件分两部分：
 1、搜索条件，参考m-form表单
 2、操作按钮，
-```
+```javascript
 operation: {
   ...{},
   columns: [], // 搜索条件，参考m-form表单
@@ -317,7 +317,7 @@ operation: {
 ```
 ## 操作组件-方法
 
-```
+```javascript
 // 提交，formData：搜索条件
 submit() // 触发一个带搜索条件数据的search(formData)事件，
 
