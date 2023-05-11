@@ -16,8 +16,8 @@ npm install
 npm install --registry=https://registry.npm.taobao.org
 # 启动服务
 npm run dev
+# 浏览器访问 [http://localhost:9528](http://localhost:9528)
 ```
-浏览器访问 [http://localhost:9528](http://localhost:9528)
 
 # Page 超页面组件说明
 
@@ -372,5 +372,5 @@ npm run build:stage
 npm run build:prod
 ```
 
-更多信息请参考 [vue-admin-template使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
+更多信息参考 [vue-admin-template使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
 
