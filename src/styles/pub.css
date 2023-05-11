@@ -1,0 +1,290 @@
+/*
+ *  基础公共用式
+ */
+.flex {
+  display: flex;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-col>.flex-fill {
+  /** 不能自适应高度hack*/
+  height: 0;
+}
+.flex.flex-wrap {
+  flex-wrap: wrap;
+}
+.flex.grow > *,
+.flex-grow {
+  flex: 1 0 0;
+}
+.flex.fill > *,
+.flex-fill {
+  flex: 1 1 auto !important;
+}
+.flex-fixed {
+  flex: 0 0 auto !important;
+}
+.flex-1{
+	flex:1;
+}
+.flex.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+.items-middle {
+  align-items: center;
+}
+.items-bottom {
+  align-items: flex-end;
+}
+.items-baseline {
+  align-items: baseline;
+}
+.items-top {
+  align-items: flex-start;
+  align-items: baseline;
+}
+.item-stretch {
+  align-items: stretch
+}
+.content-end {
+  justify-content: flex-end;
+}
+.content-between {
+  justify-content: space-between;
+}
+.content-around {
+  justify-content: space-around;
+}
+
+.height-full {
+  height: 100%;
+}
+.width-full {
+  width: 100%;
+}
+.block {
+  display: block;
+}
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed !important;
+}
+
+.over-hide {
+  overflow: hidden;
+}
+.over-auto {
+  overflow: auto;
+}
+.over-y-auto {
+  overflow-y: auto;
+}
+.float-right {
+  float: right !important;
+}
+.float-left {
+  float: left !important;
+}
+.block-center {
+  margin: 0 auto;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-xs {
+  font-size: 10.5px;
+}
+.text-sm {
+  font-size: 12px;
+}
+.text-lg {
+  font-size: 16px;
+}
+.text-xl {
+  font-size: 18px;
+}
+.strong {
+  font-weight: 700;
+}
+.padding {
+  padding: 20px;
+}
+.padding-bottom{
+  padding-bottom: 10px;
+}
+.margin-bottom{
+  margin-bottom: 10px;
+}
+.border {
+  border: 1px solid #eeeeee;
+}
+.border-bottom {
+  border-bottom: 1px solid #eeeeee;
+}
+.border-top {
+  border-top: 1px solid #eeeeee;
+}
+.border-left {
+  border-left: 1px solid #eeeeee;
+}
+.border-right {
+  border-right: 1px solid #eeeeee;
+}
+.border-none {
+  border: none;
+}
+.margin-none {
+  margin: 0 !important;
+}
+/*不变边框*/
+
+.border-dashed {
+  border-style: dashed;
+}
+.border-dotted {
+  border-style: dotted;
+}
+.border-double {
+  border-style: double;
+}
+.border-inset {
+  border-style: inset;
+}
+.border-outset {
+  border-style: outset;
+}
+
+.border-bold {
+  border-width: 2px;
+}
+.radius-sm {
+  border-radius: 2px;
+}
+.radius {
+  border-radius: 4px;
+}
+.radius-lg {
+  border-radius: 6px;
+}
+.radius-xl-top {
+  border-radius: 10px 10px 0px 0px;
+}
+.radius-circle {
+  border-radius: 50%;
+}
+.square {
+  border-radius: 0;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 5px #ccc;
+}
+.shadow {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+.ellipsis {
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.hide,
+.hidden {
+  display: none;
+}
+.bold {
+  font-weight: bold;
+}
+.require:before {
+  content: '*';
+  color: red;
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 5px;
+}
+.price {
+  line-height: 1;
+}
+.price:before {
+  content: '￥';
+}
+.block-mask,
+.block-middle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.block-mask,
+.bg-mask {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.bg-linear {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0) 50%);
+}
+
+.rotate90 {
+  transform: rotate(90deg);
+}
+
+span[disabled] {
+  color: rgba(0,0,0,.25);
+  cursor: not-allowed;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* 滚动条斯文一点 */
+.nice-scrollbar::-webkit-scrollbar {
+width : 2px;
+height: 1px;
+}
+.nice-scrollbar::-webkit-scrollbar-thumb {
+border-radius: 10px;
+box-shadow   : inset 0 0 5px rgba(59, 58, 58, 0.1);
+background   : #f4f7fc;
+}
+.nice-scrollbar:hover::-webkit-scrollbar-thumb{
+  background   : #ddd;
+}
+.nice-scrollbar::-webkit-scrollbar-track {
+box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.03);
+border-radius: 10px;
+background   : #f4f7fc;
+}
+
+.eui-btn-disabled {
+  color: rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border-color: #d9d9d9;
+  text-shadow: none;
+  box-shadow: none;
+  cursor: auto;
+}

@@ -2,6 +2,7 @@
 
 > 这是一个简易的 vue admin 前后端分离-管理后台。它使用 Vue2 + Element UI，花裤衩/vue-admin-template手脚架技术栈开发，并对Element UI的表单、表格等进行优化而二次封装，支持用户自定义表单配置并进行数据操作。开发一个实现增删改查的页面只需要配置几行代码即可，大大减少重复工作量。
 
+[在线预览](http://www.easytouser.com/demo/vue-admin)
 
 ## 快速开始 Build Setup
 
@@ -12,11 +13,9 @@ git clone https://gitee.com/maozilong/vue-admin-simple.git
 cd vue-admin-simple
 # 安装依赖
 npm install
-# 建议不要直接使用 cnpm 安装以来，会有各种诡异的 bug。可以通过如下操作解决 npm 下载速度慢的问题
-npm install --registry=https://registry.npm.taobao.org
 # 启动服务
 npm run dev
-# 浏览器访问 [http://localhost:9528](http://localhost:9528)
+# 浏览器访问 http://localhost:9528
 ```
 
 # Page 超页面组件说明
@@ -358,9 +357,9 @@ del()
 ```
 
 # 其它
-
+> 封装的组件还有：可拖拽的DragDialog，弹窗表单编辑的FormModal，树结构的按钮组组件MDropdown，文件上传组件MUpload。
 > 另外实现基于axios的本地mock数据，和包含简单的单表增删改查的localDb本地数据库类，详情查看源文件utils/mockDb/localDb.js
-
+> 更多精彩clone下来跑一下吧！
 
 # 发布
 
