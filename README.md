@@ -1,6 +1,7 @@
 # vue-admin-simple
 
-> 这是一个简易的 vue admin 前后端分离-管理后台。它使用 Vue2 + Element UI，花裤衩/vue-admin-template手脚架技术栈开发，并对Element UI的表单、表格进行二次封装，支持用户自定义表单配置并进行数据操作。开发一个实现增删改查的页面只需要配置几行代码即可，大大减少重复工作量。
+> 这是一个简易的 vue admin 前后端分离-管理后台。它使用 Vue2 + Element UI，花裤衩/vue-admin-template手脚架技术栈开发，并对Element UI的表单、表格等进行优化而二次封装，支持用户自定义表单配置并进行数据操作。开发一个实现增删改查的页面只需要配置几行代码即可，大大减少重复工作量。
+
 
 ## 快速开始 Build Setup
 
@@ -18,28 +19,52 @@ npm run dev
 ```
 浏览器访问 [http://localhost:9528](http://localhost:9528)
 
-# 超页面<Page>组件说明
+# Page 超页面组件说明
 
 ```html
-<Page ref="page" :config="config" />
+<Page ref="page" :config="page" />
 ```
 ## 超页面-属性
 
 ```javascript
 page: {
-  columns: [  // 超页面项[Object]，必选, 搜索条件、table、表单公用字段
+  ...{}, // 继承Element UI Form、Table的所有属性
+  span: 8, // 整个表单的col布局的值，默认 8
+  columns: [  // 超页面项[Object]，必选, 搜索条件、table、表单公用字段，只需要配置一次
     {
-      ...{}, // 参数参考m-form,m-table组件，有些属性重写，详情往下看。
-
+      ...{}, // 继承Form-Item或者Table-column所有属性，有些属性重写，详情往下看。
+      type: 'input', // 类型，支持所有Form类型组件，去掉‘el-’前缀，如：input,select,checkbox,switch...
+      label: '用户名', // 标签文本
+      prop: 'name', // 绑定的字段值
+      propName: 'propName', // 为显示名称字段，如select类型时候，保存的是id，显示却是name
+      value: '张三', // 表单字段默认值
+      span: '', // 当前col布局的值，默认取表单span
+      options: [], // 可选项数据源，键名可通过 Props 属性配置 增加3个类型支持：select,checkbox,radio
+      dictionary: '', // 选项为字典数据时使用，支持的类型：select,checkbox,radio
+      slotScope: '', // 插槽，暂时只支持table
+      attr: { // 绑定的属性，继承type对应Form组件的所有属性
+        placeholder: '请(输入|选择)${label}', // 未设置时的默认值
+        valueFormat: 'yyyy-MM-dd' // 当date-picker类型时默认：yyyy-MM-dd
+        props: { value: 'id', label: 'name' } // 增加3个类型支持：select,checkbox,radio
+      },
+      request: {config: axios}, // 远程请求配置，获取树结构，甚至列表接口。详情参考axios用法。 
+      change: (val, form) => { // 值变化回调，支持type对应Form组件、Table-column的所有事件，事件，如：input,change,focus...
+        // 返回参数说明： val,对应事件的返回值；form，当前表单
+        form.setFields({
+          [prop]: { attr: { disabled: !val }}
+        })
+      },
       // 搜索条件的属性，默认去掉rules、监听事件、默认值、upload类型
       search: {  // 有配置则重写搜索栏配置
         attr: { placeholder: '输入名称搜索' } // 如：希望搜索栏的占位符为：输入名称搜索
       },
+      table: {}, // 有配置则重写
+      form: {}, // 有配置则重写
     }
   ],
-  form: {}, // 重写m-form配置
-  table: {}, // 重写m-table配置
-  operation: {}, // 重写operation配置
+  form: {}, // 参考m-form配置
+  table: {}, // 参考m-table配置
+  operation: {}, // 参考operation配置
 }
 ```
 ## 超页面-事件
@@ -109,7 +134,7 @@ export default {
 
 ```
 
-# 表单<m-form>组件说明
+# m-form 表单组件说明
 
 ```html
 <m-form ref="form" v-bind="form" />
@@ -119,6 +144,7 @@ export default {
 ```javascript
 form: {
   ...{}, // 继承Element UI Form的所有属性
+  span: 8, // 整个表单的col布局的值，默认 8
   columns: [  // 表单项[Object]，必选,
     {
       ...{}, // 继承Form-Item所有属性，有些属性重写，详情往下看。
@@ -127,7 +153,7 @@ form: {
       prop: 'name', // 绑定的字段值
       propName: 'propName', // 为显示名称字段，如select类型时候，保存的是id，显示却是name
       value: '张三', // 表单字段默认值
-      span: 8, // col 布局的值，默认 8
+      span: '', // 当前col布局的值，默认取表单span
       options: [], // 可选项数据源，键名可通过 Props 属性配置 增加3个类型支持：select,checkbox,radio
       dictionary: '', // 选项为字典数据时使用，支持的类型：select,checkbox,radio
       slotScope: '', // 插槽，暂时只支持table
@@ -210,7 +236,7 @@ export default {
 
 ```
 
-# 表格<m-table>组件说明
+# m-table 表格组件说明
 
 ```html
 <m-form ref="table" v-bind="table" />
@@ -289,7 +315,7 @@ export default {
 </script>
 ```
 
-# 操作<operation>组件说明
+# operation 操作组件说明
 
 ```javascript
 <operation ref="operation" v-bind="operation" />
@@ -331,6 +357,11 @@ del()
 
 ```
 
+# 其它
+
+> 另外实现基于axios的本地mock数据，和包含简单的单表增删改查的localDb本地数据库类，详情查看源文件utils/mockDb/localDb.js
+
+
 # 发布
 
 ```bash
@@ -339,22 +370,6 @@ npm run build:stage
 
 # 构建生产环境
 npm run build:prod
-```
-
-## 其它
-
-```bash
-# 预览发布环境效果
-npm run preview
-
-# 预览发布环境效果 + 静态资源分析
-npm run preview -- --report
-
-# 代码格式检查
-npm run lint
-
-# 代码格式检查并自动修复
-npm run lint -- --fix
 ```
 
 更多信息请参考 [vue-admin-template使用文档](https://panjiachen.github.io/vue-element-admin-site/zh/)
