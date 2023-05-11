@@ -23,7 +23,7 @@ npm run dev
 ```
 <Page ref="page" :config="config" />
 ```
-# 超页面-属性
+## 超页面-属性
 
 ```
 page: {
@@ -42,7 +42,7 @@ page: {
   operation: {}, // 重写operation配置
 }
 ```
-# 超页面-事件
+## 超页面-事件
 
 ```
 // ...继承m-form、m-table、operation组件的所有事件
@@ -59,7 +59,7 @@ open(row, index) // row, 选择的行；index，m-table下标
 del() // 参考m-table.del(obj, index)方法
 ```
 
-# 超页面-示例
+## 超页面-示例
 
 > 40几行代码完成一个带有增删改查操作的页面。（支持批量删除）
 
@@ -114,7 +114,7 @@ export default {
 ```
 <m-form ref="form" v-bind="form" />
 ```
-# 表单-属性
+## 表单-属性
 
 ```
 form: {
@@ -147,7 +147,7 @@ form: {
   ] ,
 }
 ```
-# 表单-方法
+## 表单-方法
 
 ```
 // ...继承form所有方法
@@ -162,7 +162,7 @@ submit(callback: Function(formData))
 setFields(option)
 ```
 
-# 表单-示例
+## 表单-示例
 
 ```
 <template>
