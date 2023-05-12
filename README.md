@@ -358,7 +358,9 @@ del()
 
 # 其它
 > 封装的组件还有：可拖拽的DragDialog，弹窗表单编辑的FormModal，树结构的按钮组组件MDropdown，文件上传组件MUpload。
+
 > 另外实现基于axios的本地mock数据，和包含简单的单表增删改查的localDb本地数据库类，详情查看源文件utils/mockDb/localDb.js
+
 > 更多精彩clone下来跑一下吧！
 
 # 发布
