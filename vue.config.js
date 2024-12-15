@@ -2,7 +2,7 @@
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
 // const Happypack = require('happypack')
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+// const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
